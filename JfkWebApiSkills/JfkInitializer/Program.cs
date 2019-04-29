@@ -14,7 +14,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Newtonsoft.Json.Linq;
 
-namespace JfkInitializer
+namespace CapInitializer
 {
     class Program
     {
@@ -160,8 +160,8 @@ namespace JfkInitializer
             {
                 DataSource dataSource = DataSource.AzureBlobStorage(
                     name: DataSourceName,
-                    storageConnectionString: ConfigurationManager.AppSettings["JFKFilesBlobStorageAccountConnectionString"],
-                    containerName: ConfigurationManager.AppSettings["JFKFilesBlobContainerName"],
+                    storageConnectionString: ConfigurationManager.AppSettings["CAPFilesBlobStorageAccountConnectionString"],
+                    containerName: ConfigurationManager.AppSettings["CAPFilesBlobContainerName"],
                     description: "Data source for cognitive search example"
                 );
                 await _searchClient.DataSources.CreateAsync(dataSource);

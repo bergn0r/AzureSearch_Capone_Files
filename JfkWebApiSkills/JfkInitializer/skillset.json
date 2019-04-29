@@ -337,7 +337,7 @@
     ],
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "CognitiveServices account for JFK demo",
+        "description": "CognitiveServices account for CAP demo",
         "key": "[CognitiveServicesKey]"
     }
 }

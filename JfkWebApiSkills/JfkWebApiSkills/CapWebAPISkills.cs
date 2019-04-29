@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.CognitiveSearch.WebApiSkills
 {
-    public static class JfkWebApiSkills
+    public static class CapWebAPISkills
     {
         [FunctionName("facet-graph-nodes")]
         public static IActionResult GetFacetGraphNodes([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req, TraceWriter log, ExecutionContext executionContext)
@@ -24,7 +24,7 @@ namespace Microsoft.CognitiveSearch.WebApiSkills
             string skillName = executionContext.FunctionName;
             if (!req.QueryString.HasValue)
             {
-                return new BadRequestObjectResult($"{skillName} - Requires a query string in the following format: q=oswald&f=entities");
+                return new BadRequestObjectResult($"{skillName} - Requires a query string in the following format: q=capone&f=entities");
             }
 
             string searchServiceName = GetAppSetting("SearchServiceName");

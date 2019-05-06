@@ -1,5 +1,5 @@
 ﻿{
-    "description": "JFK Files Skillset",
+    "description": "Capone Files Skillset",
     "skills": [
         {
             "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",

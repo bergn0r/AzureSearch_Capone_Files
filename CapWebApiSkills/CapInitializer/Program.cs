@@ -27,9 +27,9 @@ namespace CapInitializer
         private static string BlobContainerNameForImageStore;
 
         // Set this to true to see additional debugging information in the console.
-        private static bool DebugMode = false;
+        private static bool DebugMode = true;
 
-        // Set this to true if you would like this app to deploy the JFK files frontend to your Azure site.
+        // Set this to true if you would like this app to deploy the Capone files frontend to your Azure site.
         private static bool ShouldDeployWebsite = true;
 
         // Clients
@@ -73,6 +73,7 @@ namespace CapInitializer
 
         private static async Task<bool> RunAsync()
         {
+            
             bool result = await DeleteIndexingResources();
             if (!result)
                 return result;
@@ -102,7 +103,7 @@ namespace CapInitializer
             if (!result)
                 return result;
             result = await QueryIndex();
-            return result;
+            return result;            
         }
 
         private static async Task<bool> DeleteIndexingResources()
@@ -223,11 +224,9 @@ namespace CapInitializer
             Console.WriteLine("Creating Synonym Map...");
             try
             {
+                await _searchClient.SynonymMaps.DeleteAsync(SynonymMapName);
                 SynonymMap synonyms = new SynonymMap(SynonymMapName, SynonymMapFormat.Solr,
-                    @"GPFLOOR,oswold,ozwald,ozwold,oswald
-                      silvia, sylvia
-                      sever, SERVE, SERVR, SERVER
-                      novenko, nosenko, novenco, nosenko");
+                    @"Alphonse, Capone, Scarface, Al, Caponi, Big Guy");
                 await _searchClient.SynonymMaps.CreateAsync(synonyms);
             }
             catch (Exception ex)
